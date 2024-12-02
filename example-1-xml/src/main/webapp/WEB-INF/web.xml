@@ -1,0 +1,51 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <!--
+    This is the deployment descriptor for the Java web application.
+    It configures the servlet container (e.g., Apache Tomcat) and sets up
+    the Spring DispatcherServlet to handle incoming requests.
+    -->
+
+    <!-- Define the Spring DispatcherServlet -->
+    <servlet>
+        <!--
+        The name of the servlet. This is used in the servlet-mapping section
+        to link the servlet to specific URL patterns.
+        -->
+        <servlet-name>dispatcherServlet</servlet-name>
+        <!--
+        Specify the fully qualified class name of the DispatcherServlet.
+        This is the front controller in Spring MVC that routes requests to
+        appropriate controllers based on configuration.
+        -->
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+
+        <!--
+       Initial parameter for the DispatcherServlet.
+       The `contextConfigLocation` parameter points to the Spring configuration file,
+       which contains bean definitions and component scanning configurations
+       (e.g., autowired, request mappings, path variables).
+       -->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>WEB-INF/springmvc-config.xml</param-value>
+        </init-param>
+    </servlet>
+
+    <!-- Map the DispatcherServlet to handle all incoming requests -->
+    <servlet-mapping>
+        <!--
+        This links the DispatcherServlet (defined above) to a specific URL pattern.
+        Here, the URL pattern `/` means the DispatcherServlet will handle all requests
+        that match the root of the application or any sub-paths.
+        -->
+        <servlet-name>dispatcherServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+
+</web-app>
