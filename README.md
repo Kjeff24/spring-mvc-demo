@@ -90,7 +90,8 @@ public class WebAppInitializer extends AbstractDispatcherServletInitializer {
     }
 }
 ```
-### PROJECT STRUCTURE
+
+#### PROJECT STRUCTURE
 ```
 ├── pom.xml
 ├── src
@@ -112,6 +113,36 @@ public class WebAppInitializer extends AbstractDispatcherServletInitializer {
 │   │           ├── jsp
 │   │           │   └── home.jsp
 │   │           └── springmvc-config.xml
+│   └── test
+│       └── java
+└── target
+
+```
+### EXAMPLE 3 SERVLET CONTAINER AND SPRING MVC CLASS CONFIGURATION
+- Path: [example-3](example-3-servlet-container-and-spring-mvc-class-configuration)
+- Purpose: A Spring MVC application using [Java-based configuration](example-3-servlet-container-and-spring-mvc-class-configuration/src/main/java/org/example/configs/WebConfig.java) and a [WebAppInitializer](example-3-servlet-container-and-spring-mvc-class-configuration/src/main/java/org/example/configs/WebAppInitializer.java), eliminating the need for a `web.xml` file for servlet initialization and `springmvc-config.xml` file for view resolver.
+
+#### PROJECT STRUCTURE
+```
+├── pom.xml
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── org
+│   │   │       └── example
+│   │   │           ├── configs
+│   │   │           │   ├── WebAppInitializer.java
+│   │   │           │   └── WebConfig.java
+│   │   │           ├── controllers
+│   │   │           │   ├── HelloController.java
+│   │   │           │   └── RestApiController.java
+│   │   │           └── models
+│   │   │               └── User.java
+│   │   ├── resources
+│   │   └── webapp
+│   │       └── WEB-INF
+│   │           └── jsp
+│   │               └── home.jsp
 │   └── test
 │       └── java
 └── target
